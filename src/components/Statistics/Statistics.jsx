@@ -5,31 +5,29 @@
 // Колір фону елемента статистики в оформленні можна пропустити або створити функцію для генерації випадкового кольору.
 // Компонент повинен створювати DOM елемент наступної структури.
 
-// import data from '/path/to/data.json';
+import PropTypes from 'prop-types';
 
-// <Statistics title="Upload stats" stats={data} />
-// <Statistics stats={data} />
-
-
-<section class="statistics">
-  <h2 class="title">Upload stats</h2>
-
-  <ul class="stat-list">
-    <li class="item">
-      <span class="label">.docx</span>
-      <span class="percentage">4%</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp3</span>
-      <span class="percentage">14%</span>
-    </li>
-    <li class="item">
-      <span class="label">.pdf</span>
-      <span class="percentage">41%</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp4</span>
-      <span class="percentage">12%</span>
-    </li>
+export const Statistics = ({stats}) => {
+  return (
+  <section className="statistics">
+  <h2 className="title">Upload stats</h2>
+  <ul className="stat-list">
+        {stats.map(({ id, label, percentage }) => (
+          <li className="item" key={id}>
+          <span className="label">{label}</span>
+          <span className="percentage">{percentage}</span>
+        </li>))}
   </ul>
-</section>
+  </section>  
+  );
+};
+
+Statistics.protoType = {
+    stats: PropTypes.arrayOf(
+        PropTypes.exact({
+    "label": PropTypes.string.isRequired,
+    "percentage": PropTypes.number.isRequired,
+    "id": PropTypes.string.isRequired,
+  }),    
+    ),
+};

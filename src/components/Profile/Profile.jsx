@@ -1,46 +1,46 @@
-// Компонент повинен приймати кілька пропсів з інформацією про користувача:
+import PropTypes from 'prop-types';
+import {
+  ProfileWrapper, Description, Avatar, Name, Tag, Location, Stats, StatsContainer, Label, Quantity } from './Profile.styled';
 
-// username — ім'я користувача
-// tag — тег в соціальній мережі без @
-// location — місто і країна
-// avatar — посилання на зображення
-// stats — об'єкт з інформацією про активності
-// Компонент повинен створювати DOM елемент наступної структури.
+export const Profile = ({ username, tag, location, avatar, stats }) => {
+  return (
+    <ProfileWrapper>
+    <Description>
+      <Avatar
+        src={avatar}
+        alt={username}
+      />
+        <Name className="name">{ username }</Name>
+        <Tag className="tag">@{tag}</Tag>
+        <Location className="location">{ location }</Location>
+      </Description>
+    <Stats className="stats">
+      <StatsContainer>
+        <Label className="label">Followers</Label>
+          <Quantity className="quantity">{stats.followers}</Quantity>
+      </StatsContainer>
+      <StatsContainer>
+        <Label className="label">Views</Label>
+          <Quantity className="quantity">{stats.views }</Quantity>
+      </StatsContainer>
+      <StatsContainer>
+        <Label className="label">Likes</Label>
+          <Quantity className="quantity">{ stats.likes}</Quantity>
+      </StatsContainer>
+    </Stats>
+  </ProfileWrapper>);
+};
 
-// import user from 'path/to/user.json;
-
-// <Profile
-//   username={user.username}
-//   tag={user.tag}
-//   location={user.location}
-//   avatar={user.avatar}
-//   stats={user.stats}
-// />
-
-<div class="profile">
-  <div class="description">
-    <img
-      src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
-      alt="User avatar"
-      class="avatar"
-    />
-    <p class="name">Petra Marica</p>
-    <p class="tag">@pmarica</p>
-    <p class="location">Salvador, Brasil</p>
-  </div>
-
-  <ul class="stats">
-    <li>
-      <span class="label">Followers</span>
-      <span class="quantity">1000</span>
-    </li>
-    <li>
-      <span class="label">Views</span>
-      <span class="quantity">2000</span>
-    </li>
-    <li>
-      <span class="label">Likes</span>
-      <span class="quantity">3000</span>
-    </li>
-  </ul>
-</div>
+Profile.protoType = {
+  user: {
+    "username": PropTypes.string.isRequired,
+    "tag": PropTypes.string.isRequired,
+    "location": PropTypes.string.isRequired,
+    "avatar": PropTypes.string.isRequired,
+    "stats":  PropTypes.exact ({
+      "followers": PropTypes.number.isRequired,
+      "views": PropTypes.number.isRequired,
+      "likes": PropTypes.number.isRequired
+    }),
+  }
+};

@@ -18,12 +18,36 @@
 // Компонент повинен створювати DOM наступної структури.
 
 // import friends from "path/to/friends.json";
+import PropTypes from 'prop-types';
 
-// <FriendList friends={friends} />;
+const Friend = ({ avatar, name }) => {
+  return (
+    <li className="item">
+      <span className="status"></span>
+      <img className="avatar" src={avatar} alt={name} width="48" />
+      <p className="name">{name}</p>
+    </li>
+  );
+};
 
-<li class="item">
-  <span class="status"></span>
-  <img class="avatar" src="" alt="User avatar" width="48" />
-  <p class="name"></p>
-</li>
 
+export const FriendList = ({ friends }) => {
+  return (
+    <ul>
+      {friends.map(friend => (
+        <Friend key={friend.id} status={friend.isOnline} avatar={friend.avatar} name={friend.name} />
+      ))}
+    </ul>
+  );
+};
+
+FriendList.protoType = {
+    friends: PropTypes.arrayOf(
+        PropTypes.exact({
+    "name": PropTypes.string.isRequired,
+    "avatar": PropTypes.string.isRequired,
+    "isOnline": PropTypes.bool.isRequired,
+    "id": PropTypes.number.isRequired,
+  }),    
+    ),
+};
