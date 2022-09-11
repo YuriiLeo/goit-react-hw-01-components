@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 export const ProfileWrapper = styled.div`
-    border: 1px solid gray;
+    border: 1px solid #808080;
+    margin: 50px 0px;
     border-radius: 4px;
+    box-shadow: 10px 8px 6px rgb(0 0 0 / 12%),
+   0 1px 1px rgb(0 0 0 / 14%), 
+   18px 10px 10px rgb(0 0 0 / 20%);
 `;
 
 export const Description = styled.div`
@@ -19,12 +23,12 @@ export const Name = styled.p`
 `;
 
 export const Tag = styled.p`
-    color: gray;
+    color: #808080;
     font-size: 30px;
 `;
 
 export const Location = styled.p`
-    color: gray;
+    color: #808080;
     font-size: 30px;
 `;
 
@@ -46,7 +50,7 @@ export const StatsContainer = styled.li`
 
 export const Label = styled.span`
     font-size: 22px;
-    color: gray;
+    color: #808080;
 `;
 export const Quantity = styled.span`
   font-weight: bold;

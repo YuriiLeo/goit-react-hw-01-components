@@ -7,20 +7,11 @@ import { Profile } from "./Profile/Profile";
 import { FriendList } from "./FriendList/FriendList";
 import { Statistics } from "./Statistics/Statistics";
 import { TransactionHistory } from "./TransactionHistory/TransactionHistory";
+import { Container } from "./App.styled";
 
 export const App = () => {
-  console.log("friends in App",friends);
   return (
-    <div
-      style={{
-        flexDirection: "column",
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
+    <Container>
       <Profile
          username={user.username}
          tag={user.tag}
@@ -31,10 +22,10 @@ export const App = () => {
 
       <Statistics title="Upload stats" stats={data} />
       
-      <FriendList friends={friends} />;
+      <FriendList friends={friends} />
       
-      <TransactionHistory items={transactions} />;
+      <TransactionHistory items={transactions} />
 
-    </div>
+    </Container>
   );
 };

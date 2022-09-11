@@ -10,22 +10,22 @@ export const Profile = ({ username, tag, location, avatar, stats }) => {
         src={avatar}
         alt={username}
       />
-        <Name className="name">{ username }</Name>
-        <Tag className="tag">@{tag}</Tag>
-        <Location className="location">{ location }</Location>
+        <Name>{ username }</Name>
+        <Tag>@{tag}</Tag>
+        <Location>{ location }</Location>
       </Description>
-    <Stats className="stats">
+    <Stats>
       <StatsContainer>
-        <Label className="label">Followers</Label>
-          <Quantity className="quantity">{stats.followers}</Quantity>
+        <Label>Followers</Label>
+          <Quantity>{stats.followers}</Quantity>
       </StatsContainer>
       <StatsContainer>
-        <Label className="label">Views</Label>
-          <Quantity className="quantity">{stats.views }</Quantity>
+        <Label>Views</Label>
+          <Quantity>{stats.views }</Quantity>
       </StatsContainer>
       <StatsContainer>
-        <Label className="label">Likes</Label>
-          <Quantity className="quantity">{ stats.likes}</Quantity>
+        <Label>Likes</Label>
+          <Quantity>{ stats.likes}</Quantity>
       </StatsContainer>
     </Stats>
   </ProfileWrapper>);
