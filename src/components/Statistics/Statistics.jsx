@@ -23,5 +23,5 @@ Statistics.protoType = {
     "percentage": PropTypes.number.isRequired,
     "id": PropTypes.string.isRequired,
   }),    
-    ),
+  ),
 };

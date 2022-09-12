@@ -27,11 +27,11 @@ export const Status = styled.span`
     margin-left: 20px;
     
     background-color: ${props => {
-    switch (props.isOnline) {
+    switch (props.status) {
         case true:
-            return "#f00";    
+            return "#0F0";    
         default:
-            return "#0F0"
+            return "#f00"
     }
    }} ;
 `;

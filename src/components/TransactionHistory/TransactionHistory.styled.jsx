@@ -20,12 +20,6 @@ export const THead = styled.thead`
     color: #fff;
 `;
 
-export const TableTd = styled.td`
-  padding: 15px 50px;
-  border: 1px solid #607d8bd1;
-
-`;
-
 export const TableTh = styled.th`
   padding: 15px 50px;
   border: 1px solid #607d8bd1;
